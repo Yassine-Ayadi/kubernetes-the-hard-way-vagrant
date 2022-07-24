@@ -5,12 +5,12 @@ set -euo pipefail
 cat <<EOF | sudo tee -a /etc/hosts
 
 # KTHW Vagrant machines
-192.168.199.10 controller-0
-192.168.199.11 controller-1
-192.168.199.12 controller-2
-192.168.199.20 worker-0
-192.168.199.21 worker-1
-192.168.199.22 worker-2
+10.0.0.10 controller-0
+10.0.0.11 controller-1
+10.0.0.12 controller-2
+10.0.0.20 worker-0
+10.0.0.21 worker-1
+10.0.0.22 worker-2
 EOF
 
 # This is added to get around the DNS issue in Ubuntu
