@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   # must be at the top
   config.vm.define "lb-0" do |c|
       c.vm.hostname = "lb-0"
-      c.vm.network "private_network", ip: "192.168.199.40"
+      c.vm.network "private_network", ip: "10.0.0.40"
 
       c.vm.provision :shell, :path => "scripts/vagrant-setup-haproxy.bash"
 
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   (0..2).each do |n|
     config.vm.define "controller-#{n}" do |c|
         c.vm.hostname = "controller-#{n}"
-        c.vm.network "private_network", ip: "192.168.199.1#{n}"
+        c.vm.network "private_network", ip: "10.0.0.1#{n}"
 
         c.vm.provision :shell, :path => "scripts/vagrant-setup-hosts-file.bash"
 
@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
   (0..2).each do |n|
     config.vm.define "worker-#{n}" do |c|
         c.vm.hostname = "worker-#{n}"
-        c.vm.network "private_network", ip: "192.168.199.2#{n}"
+        c.vm.network "private_network", ip: "10.0.0.2#{n}"
 
         c.vm.provision :shell, :path => "scripts/vagrant-setup-routes.bash"
         c.vm.provision :shell, :path => "scripts/vagrant-setup-hosts-file.bash"
@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "traefik-0", autostart: false do |c|
       c.vm.hostname = "traefik-0"
-      c.vm.network "private_network", ip: "192.168.199.30"
+      c.vm.network "private_network", ip: "10.0.0.30"
 
       c.vm.provision :shell, :path => "scripts/vagrant-setup-routes.bash"
   end
