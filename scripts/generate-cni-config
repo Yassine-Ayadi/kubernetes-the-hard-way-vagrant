@@ -17,7 +17,7 @@ for i in {0..2}; do
     "ipam": {
         "type": "host-local",
         "ranges": [
-          [{"subnet": "10.2${i}.0.0/16"}]
+          [{"subnet": "10.2${i}.0.0/23"}]
         ],
         "routes": [{"dst": "0.0.0.0/0"}]
     }
